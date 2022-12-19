@@ -1,0 +1,49 @@
+import cv2 as cv
+import numpy as np
+
+blank = np.zeros((1000,1000, 3), dtype = 'uint8')
+
+#cv.imshow('blank', blank)
+
+blank[:] = 255,0,0   # paint a image with certain color this func has to use blank[:] this used for all the pixels
+
+                      # we can define the color range by using blank[200:300, 300:400]
+
+
+#cv.imshow('Red', blank)
+
+#mg = cv.imread('E:\Sagor Graduate CV\Final.png')
+
+#cv.imshow('Final', img)
+
+
+# draw a rectangle
+
+cv.rectangle(blank, (0,0), (1150, 350), (0,255,0), thickness = 2 )   # if you want filled with color then write thickness = cv.FILLED or thick = -1
+
+cv.rectangle(blank, (0,0), (blank.shape[1]//2, blank.shape[0]//2), (0,255,0), thickness = -1 )  #half of the orginal rectangle
+
+cv.imshow('Rectangl', blank)
+
+
+
+# draw a circle
+
+cv.circle(blank, (blank.shape[1]//2, blank.shape[0]//2), 40, (0,0,255), thickness =-1)
+cv.imshow('circe', blank)
+
+# draw a line
+
+cv.line(blank, (250,300), (blank.shape[1]//2, blank.shape[0]//2), (0,0,255), thickness = 3)
+
+cv.imshow('line', blank)
+
+# how to write text on image
+
+cv.putText(blank, 'Hello my name is Jane', (300, 300), cv.FONT_HERSHEY_DUPLEX,  1.0, (255,255,0), 2)
+
+cv.imshow('TEXT', blank)
+
+cv.waitKey(0)
+
+
